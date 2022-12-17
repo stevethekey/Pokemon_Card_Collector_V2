@@ -1,0 +1,6 @@
+### Ignore these files 
+*.exe
+*.dll
+Source_Package/lib/
+Source_Package/include/sdl2/
+.vscode/
