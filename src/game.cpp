@@ -1,4 +1,5 @@
 #include <headers/game.h>
+#include "TextureManager.h"
 
 Game::Game(const char* title, int x, int y, int width, int height, Uint32 flags)
 {
@@ -11,13 +12,11 @@ Game::Game(const char* title, int x, int y, int width, int height, Uint32 flags)
         renderer = SDL_CreateRenderer(window, -1, 0);                   //sets up rendering
         SDL_SetRenderDrawColor(renderer,255, 255, 255, 255);            //allows to modify rendering's background color
 
-        SDL_Surface* tmpSurface = IMG_Load("res/images/Gusto.png");
-        Main_Model_GUSTO = SDL_CreateTextureFromSurface(renderer, tmpSurface);  //our protagnist, Gusto.
-        SDL_FreeSurface(tmpSurface);
+        Main_Model_GUSTO = TextureManager::LoadTexture("res/images/Gusto.png", renderer);
 
         
-        destR.h = 64;
-        destR.w = 64;
+        destR.h = 128;
+        destR.w = 128;
         destR.x = 0;
         destR.y = 0;
         G_State = PLAY;                                                 //allow game loop to run
@@ -82,6 +81,8 @@ void Game::run()
 
     Uint32 frameStart;
     int frameTime;
+
+
 
     while(G_State == PLAY)
     {

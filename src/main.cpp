@@ -2,8 +2,10 @@
 
 int main(int argc, char* argv[])
 {
-    Game game("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 600, SDL_WINDOW_SHOWN);
+    Game Pokemon_Game = Game("Collect them all!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 600, SDL_WINDOW_SHOWN);
+    Pokemon_Game.run();
 
-    game.Run();
+
+    
     return 0;
 }
